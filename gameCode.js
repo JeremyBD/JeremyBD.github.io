@@ -150,8 +150,8 @@ function playerInput(npc, dialogueCount) //WHERE DIALOGUE WILL OCCUR
             messageAlert.innerHTML = 'Sorcerer:<br /><br />"Ah, wary traveler. I sell potions of health and regeneration<br />Would you like any?"<br /><br />';
             GAME_MENU.appendChild(messageAlert);
             GAME_MENU.appendChild(confirmSpeechBtn);
-            confirmSpeechBtn.innerHTML = "Yes (Pay 80 Gold)";
-            confirmSpeechBtn.setAttribute("onclick", "PLAYER_ONE.gold -= 80; PLAYER_ONE.currentHealth = PLAYER_ONE.maxHealth; skipDialogueBtn()");
+            confirmSpeechBtn.innerHTML = "Yes (Pay 50 Gold)";
+            confirmSpeechBtn.setAttribute("onclick", "PLAYER_ONE.gold -= 50; PLAYER_ONE.currentHealth = PLAYER_ONE.maxHealth; skipDialogueBtn()");
 			skipSpeechBtn.setAttribute("onclick", "skipDialogueBtn()");
 			skipSpeechBtn.innerHTML = "No. (Leave)";
 			GAME_MENU.appendChild(skipSpeechBtn);
