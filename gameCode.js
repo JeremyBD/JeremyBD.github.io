@@ -139,7 +139,6 @@ function playerInput(npc, dialogueCount) //WHERE DIALOGUE WILL OCCUR
 				GAME_MENU.appendChild(skipSpeechBtn);
             }
         }
-        /*
 		if(currentSpeaker == SORCERER.charName)
         {
 			inDialogue = true;
@@ -152,12 +151,12 @@ function playerInput(npc, dialogueCount) //WHERE DIALOGUE WILL OCCUR
             GAME_MENU.appendChild(messageAlert);
             GAME_MENU.appendChild(confirmSpeechBtn);
             confirmSpeechBtn.innerHTML = "Yes (Pay 80 Gold)";
-            confirmSpeechBtn.setAttribute("onclick", "PLAYER_ONE.gold -= 80; PLAYER_ONE.currentHealth = PLAYER_ONE.maxHealth; PLAYER_ONE.HPregen += 0.015; skipDialogueBtn()");
+            confirmSpeechBtn.setAttribute("onclick", "PLAYER_ONE.gold -= 80; PLAYER_ONE.currentHealth = PLAYER_ONE.maxHealth; skipDialogueBtn()");
 			skipSpeechBtn.setAttribute("onclick", "skipDialogueBtn()");
 			skipSpeechBtn.innerHTML = "No. (Leave)";
 			GAME_MENU.appendChild(skipSpeechBtn);
         }
-        */
+
     }
 }
 
