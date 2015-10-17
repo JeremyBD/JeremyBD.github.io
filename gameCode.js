@@ -142,6 +142,7 @@ function playerInput(npc, dialogueCount) //WHERE DIALOGUE WILL OCCUR
 		if(currentSpeaker == SORCERER.charName)
         {
 			inDialogue = true;
+			lastDialogue = true;
             GAME_MENU.style.display = "block";
 			ground.style.display = "none";//----------------------------------------------------------------------------
             messageAlert = document.createElement("div");
