@@ -154,6 +154,21 @@ function playerInput(npc, dialogueCount) //WHERE DIALOGUE WILL OCCUR
 			skipSpeechBtn.innerHTML = "Leave";
 			GAME_MENU.appendChild(skipSpeechBtn);
         }
+        if(currentSpeaker == CASTLE_GUARD.charName)
+        {
+			inDialogue = true;
+			lastDialogue = true;
+            GAME_MENU.style.display = "block";
+			ground.style.display = "none";//----------------------------------------------------------------------------
+            messageAlert = document.createElement("div");
+            messageAlert.id = "promptplayermessage";
+
+            messageAlert.innerHTML = 'Castle Knight:<br /><br />"Hmph.<br />Indeed you are small, but you have proven your strength.<br />Go on and you shall fulfill your destiny-- one way or another..."<br /><br />';
+            GAME_MENU.appendChild(messageAlert);
+			skipSpeechBtn.setAttribute("onclick", "skipDialogueBtn()");
+			skipSpeechBtn.innerHTML = "Leave";
+			GAME_MENU.appendChild(skipSpeechBtn);
+        }
 
     }
 }
@@ -695,14 +710,17 @@ function checkKeyPressDown(e)
 {
     if(!startNewGame && !inDialogue)
     {
-        if (e.which == 65 || e.keyCode == 65)
+    	e.preventDefault();
+        if (e.which == 65 || e.keyCode == 65 || 
+        	e.which == 37 || e.keyCode == 37)
         {
             PLAYER_ONE.moveLeft();
             leftKey = true;
         }
         else
         {
-            if (e.which == 68 || e.keyCode == 68)
+            if (e.which == 68 || e.keyCode == 68 || 
+            	e.which == 39 || e.keyCode == 39)
             {
                 PLAYER_ONE.moveRight();
                 rightKey = true;
@@ -710,16 +728,18 @@ function checkKeyPressDown(e)
         }
         if (e.which == 32 || e.keyCode == 32)
         {
-            e.preventDefault();
+            //e.preventDefault();
 	    	attackKey = true;
             PLAYER_ONE.attack();
         }
-        if (e.which == 83 || e.keyCode == 83)
+        if (e.which == 83 || e.keyCode == 83 || 
+        	e.which == 40 || e.keyCode == 40)
         {
             PLAYER_ONE.playerblock();
             blockKey = true;
         }
-        if (e.which == 87 || e.keyCode == 87)
+        if (e.which == 87 || e.keyCode == 87 || 
+        	e.which == 38 || e.keyCode == 38)
         {
             PLAYER_ONE.jump();
             jumpKey = true;
@@ -738,7 +758,14 @@ function checkKeyPressUp(e)
     if(!startNewGame)
     {
         PLAYER_ONE.checkPlayer();
-        if (e.which == 65 || e.keyCode == 65 || e.which == 68 || e.keyCode == 68 || e.which == 83 || e.keyCode == 83 || e.which == 32 || e.keyCode == 32)
+        if (e.which == 65 || e.keyCode == 65 || 
+        	e.which == 68 || e.keyCode == 68 || 
+        	e.which == 83 || e.keyCode == 83 || 
+        	e.which == 32 || e.keyCode == 32 || 
+        	e.which == 37 || e.keyCode == 37 || 
+        	e.which == 38 || e.keyCode == 38 || 
+        	e.which == 39 || e.keyCode == 39 || 
+        	e.which == 40 || e.keyCode == 40)
         {
             if(PlayerFace == WALKING_RIGHT)
             {
@@ -808,7 +835,7 @@ function checkPlayerBounds() //DO THE THING WITH THE MOVING TO NEW AREA
 			}
 			else
 			{
-				if(boss)
+				if(boss || world <= 1)
 				{
 					positionX = wideLeftBound;
 				}
