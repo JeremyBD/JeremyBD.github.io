@@ -378,13 +378,18 @@ function startGame()
 						}
 					}
 
-					if(NPCS.length == 0 && !ENEMIES[i].checkStatus())
+					if(NPCS.length <= 0 && !ENEMIES[i].checkStatus())
 					{
 						PLAYER_ONE.currentHealth-=0.05;
 						health.innerHTML = parseInt(PLAYER_ONE.currentHealth);
 						PLAYER_ONE.checkStatus();
 					}
 				}
+			}
+			if(boss && areaKills == ENEMIES.length && !PLAYER_ONE.win)
+			{
+				PLAYER_ONE.win = true;
+				PLAYER_ONE.checkStatus();
 			}
 			
 			checkPlayerBounds();
@@ -427,6 +432,7 @@ function buildLevel(worldNum, areaNum)
 	leftKey = false;
 	
 	//EMPTY CHARACTER ARRAYS EACH TIME PLAYER LEAVES AREA 
+	areaKills = 0;
 	if(NPCS.length > 0)
 	{
 		for(var i = 0; i < NPCS.length; i++)
@@ -839,21 +845,21 @@ function checkPlayerBounds() //DO THE THING WITH THE MOVING TO NEW AREA
 				{
 					positionX = wideLeftBound;
 				}
-				else
+				/*else
 				{
 					buildLevel(world - 1, TOTAL_AREA_COUNT);
 					positionX = wideRightBound - 10;
 					PLAYER.src = IDLE_LEFT;
-				}
+				}*/
 			}
 		}
-		else
+		/*else
 		{
 			if(positionX <= wideLeftBound && PlayerFace != ATTACKING_RIGHT && PlayerFace != ATTACKING_LEFT)
 			{
 				positionX = wideLeftBound;
 			}
-		}
+		}*/
 		
 		if(positionX >= wideRightBound && PlayerFace != ATTACKING_RIGHT && PlayerFace != ATTACKING_LEFT && area < TOTAL_AREA_COUNT)
 		{               
@@ -870,6 +876,7 @@ function checkPlayerBounds() //DO THE THING WITH THE MOVING TO NEW AREA
 				if(positionX >= wideRightBound && PlayerFace != ATTACKING_RIGHT && PlayerFace != ATTACKING_LEFT)
 				{
 					positionX = wideRightBound;
+					//alert(ENEMIES.length);
 				}
 			}
 		}

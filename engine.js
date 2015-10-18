@@ -9,6 +9,7 @@ var attack = false;
 var PLAYER_ONE = null;
 var GAME_RUNNING = true;
 var deaths = 0;
+var areaKills = 0;
 
 var positionX = 50;
 var positionY = 380;
@@ -103,6 +104,7 @@ function PLAYER_CHAR(pName, coin, health, currHealth, regenerateHP, dmg, idleW, 
 	this.HPregen = regenerateHP;
 	this.damage = dmg;
 	this.gold = coin;
+	this.win = false;
 	
 	this.xCoord = positionX;
 	this.yCoord = positionY;
@@ -207,6 +209,25 @@ function PLAYER_CHAR(pName, coin, health, currHealth, regenerateHP, dmg, idleW, 
 								confirmSpeechBtn = document.createElement("button");
 								confirmSpeechBtn.id = "confirmspeechbtn";
 								confirmSpeechBtn.innerHTML = "Start Over";
+								confirmSpeechBtn.setAttribute("onclick", "window.location = 'game.html'");
+								GAME_MENU.appendChild(confirmSpeechBtn);
+							}
+						}
+						else
+						{
+							if(this.win)
+							{
+								GAME_RUNNING = false;
+								inDialogue = true;
+								GAME_MENU.style.display = "block";
+								ground.style.opacity = "0";
+								newGameAlert = document.createElement("div");
+								newGameAlert.id = "promptplayername";
+								newGameAlert.innerHTML = 'You Won!<br /> You are the new monarch, King <b id = "misc">' + this.charName + '</b>!';
+								GAME_MENU.appendChild(newGameAlert);
+								confirmSpeechBtn = document.createElement("button");
+								confirmSpeechBtn.id = "confirmspeechbtn";
+								confirmSpeechBtn.innerHTML = "Play Again";
 								confirmSpeechBtn.setAttribute("onclick", "window.location = 'game.html'");
 								GAME_MENU.appendChild(confirmSpeechBtn);
 							}
@@ -529,6 +550,7 @@ function ENEMY(eName, health, currHealth, x, y, height, width, defaultIdle, move
 							{
 								PLAYER_ONE.addGold(loot);
 								this.tmp = 0;
+								areaKills++;
 							}
 							return this.dead(); 
 						}
