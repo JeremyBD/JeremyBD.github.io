@@ -771,7 +771,7 @@ function checkKeyPressUp(e)
         if (e.which == 65 || e.keyCode == 65 || 
         	e.which == 68 || e.keyCode == 68 || 
         	e.which == 83 || e.keyCode == 83 || 
-        	e.which == 32 || e.keyCode == 32 || 
+        	e.which == 32 || e.keyCode == 32 //|| 
 //        	e.which == 37 || e.keyCode == 37 || 
 //        	e.which == 38 || e.keyCode == 38 || 
 //        	e.which == 39 || e.keyCode == 39 || 
