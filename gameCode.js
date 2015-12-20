@@ -771,7 +771,8 @@ function checkKeyPressUp(e)
 //        	e.which == 37 || e.keyCode == 37 || 
 //        	e.which == 38 || e.keyCode == 38 || 
 //        	e.which == 39 || e.keyCode == 39 || 
-//        	e.which == 40 || e.keyCode == 40)
+//        	e.which == 40 || e.keyCode == 40
+						)
         {
             if(PlayerFace == WALKING_RIGHT)
             {
