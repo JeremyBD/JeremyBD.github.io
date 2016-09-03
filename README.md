@@ -2,7 +2,7 @@
 ## My name is Jeremy De La Cruz and this is my personal page with a few of my personal projects.
 
 ### TODO:
-- Create alternate dev branch to minimize risk to master branch
+- Utilize dev branch to minimize risk to master branch
 - Get the site up and running!
     - Implement node.js, express.js, and nunjucks (essentially most of the MEAN stack)
     - OR create it as a Tornado Web App with Python
