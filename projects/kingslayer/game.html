@@ -1,0 +1,269 @@
+<!DOCTYPE HTML>
+<!-- Jeremy De La Cruz -->
+<html onkeydown = "checkKeyPressDown(event)" onkeyup = "checkKeyPressUp(event)">
+	<head>
+		<title>
+			Kingslayer
+		</title>
+		
+		<link type="text/css" rel="stylesheet" href="styling.css" />
+		<script>
+			function startup()
+			{
+				contentContainer = document.getElementById("container");
+				contentFrame = document.getElementById("gameScreen");
+				level = document.getElementById("worldSpace");
+				ground = document.getElementById("envGround");
+				PLAYER = document.getElementById("playerChar");
+				PLAYER_HUD = document.getElementById("HUD"); 
+				PLAYER_NAME = document.getElementById("playerName");
+				healthBar = document.getElementById("health");
+				currency = document.getElementById("goldCount");
+				locale = document.getElementById("location");
+				GAME_MENU = document.getElementById("menuBox");
+				playerNotifications = document.getElementById("playerPrompt");
+				
+				TEST_DISPLAY = document.getElementById("TEST");
+				
+				startNewGame = true;
+				
+				img1 = document.createElement("img");
+				img1.src = "images/Player/Idle/idleRomanRight.gif";
+				img1.class = "loadingImg";
+				img1.style.opacity = "0";
+				img2 = document.createElement("img");
+				img2.src = "images/Player/Idle/idleRomanLeft.gif";
+				img2.class = "loadingImg";
+				img2.style.opacity = "0";
+				img3 = document.createElement("img");
+				img3.src = "images/Player/Movement/walkingRomanRight.gif";
+				img3.class = "loadingImg";
+				img3.style.opacity = "0";
+				img4 = document.createElement("img");
+				img4.src = "images/Player/Movement/walkingRomanLeft.gif";
+				img4.class = "loadingImg";
+				img4.style.opacity = "0";
+				img5 = document.createElement("img");
+				img5.src = "images/Player/Block/blockingRomanRight.gif";
+				img5.class = "loadingImg";
+				img5.style.opacity = "0";
+				img6 = document.createElement("img");
+				img6.src = "images/Player/Block/blockingRomanLeft.gif";
+				img6.class = "loadingImg";
+				img6.style.opacity = "0";
+				img7 = document.createElement("img");
+				img7.src = "images/Player/Attack/attackingRomanRightFrames.gif";
+				img7.class = "loadingImg";
+				img7.style.opacity = "0";
+				img8 = document.createElement("img");
+				img8.src = "images/Player/Attack/attackingRomanLeftFrames.gif";
+				img8.class = "loadingImg";
+				img8.style.opacity = "0";
+				img9 = document.createElement("img");
+				img9.src = "Assets/grave.png";
+				img9.class = "loadingImg";
+				img9.style.opacity = "0";
+				img10 = document.createElement("img");
+				img10.src = "images/NPCs/Hunter/idleHunter.gif";
+				img10.class = "loadingImg";
+				img10.style.opacity = "0";
+				img11 = document.createElement("img");
+				img11.src = "images/NPCs/Sorcerer/sorcererSitting.gif";
+				img11.class = "loadingImg";
+				img11.style.opacity = "0";
+				img12 = document.createElement("img");
+				img12.src = "images/Enemies/Bandit/Peasant/idleWarriorLeft.gif";
+				img12.class = "loadingImg";
+				img12.style.opacity = "0";
+				img13 = document.createElement("img");
+				img13.src = "images/Enemies/Bandit/Peasant/idleWarriorRight.gif";
+				img13.class = "loadingImg";
+				img13.style.opacity = "0";
+				img14 = document.createElement("img");
+				img14.src = "images/Enemies/Bandit/Peasant/movingWarriorLeft.gif";
+				img14.class = "loadingImg";
+				img14.style.opacity = "0";
+				img15 = document.createElement("img");
+				img15.src = "images/Enemies/Bandit/Peasant/movingWarriorRight.gif";
+				img15.class = "loadingImg";
+				img15.style.opacity = "0";
+				img16 = document.createElement("img");
+				img16.src = "images/Enemies/Bandit/Peasant/attackingWarriorLeft.gif";
+				img16.class = "loadingImg";
+				img16.style.opacity = "0";
+				img17 = document.createElement("img");
+				img17.src = "images/Enemies/Bandit/Peasant/attackingWarriorRight.gif";
+				img17.class = "loadingImg";
+				img17.style.opacity = "0";
+				img18 = document.createElement("img");
+				img18.src = "images/Enemies/Bandit/Barbarian/idleBarbarianLeft.gif";
+				img18.class = "loadingImg";
+				img18.style.opacity = "0";
+				img19 = document.createElement("img");
+				img19.src = "images/Enemies/Bandit/Barbarian/idleBarbarianRight.gif";
+				img19.class = "loadingImg";
+				img19.style.opacity = "0";
+				img20 = document.createElement("img");
+				img20.src = "images/Enemies/Bandit/Barbarian/walkingBarbarianLeft.gif";
+				img20.class = "loadingImg";
+				img20.style.opacity = "0";
+				img21 = document.createElement("img");
+				img21.src = "images/Enemies/Bandit/Barbarian/walkingBarbarianRight.gif";
+				img21.class = "loadingImg";
+				img21.style.opacity = "0";
+				img22 = document.createElement("img");
+				img22.src = "images/Enemies/Bandit/Barbarian/attackingBarbarianLeft.gif";
+				img22.class = "loadingImg";
+				img22.style.opacity = "0";
+				img23 = document.createElement("img");
+				img23.src = "images/Enemies/Bandit/Barbarian/attackingBarbarianRight.gif";
+				img23.class = "loadingImg";
+				img23.style.opacity = "0";
+				img24 = document.createElement("img");
+				img24.src = "Assets/rocks.png";
+				img24.class = "loadingImg";
+				img24.style.opacity = "0";
+				img25 = document.createElement("img");
+				img25.src = "Assets/day.png";
+				img25.class = "loadingImg";
+				img25.style.opacity = "0";
+				img26 = document.createElement("img");
+				img26.src = "Assets/dawn.png";
+				img26.class = "loadingImg";
+				img26.style.opacity = "0";
+				img27 = document.createElement("img");
+				img27.src = "Assets/pacific_mountain_range_free_mspaint_background_by_birritan-d8frpok.png";
+				img27.class = "loadingImg";
+				img27.style.opacity = "0";
+				img28 = document.createElement("img");
+				img28.src = "Assets/finalcastle.png";
+				img28.class = "loadingImg";
+				img28.style.opacity = "0";
+				contentFrame.appendChild(img1);
+				contentFrame.appendChild(img2);
+				contentFrame.appendChild(img3);
+				contentFrame.appendChild(img4);
+				contentFrame.appendChild(img5);
+				contentFrame.appendChild(img6);
+				contentFrame.appendChild(img7);
+				contentFrame.appendChild(img8);
+				contentFrame.appendChild(img9);
+				contentFrame.appendChild(img10);
+				contentFrame.appendChild(img11);
+				contentFrame.appendChild(img12);
+				contentFrame.appendChild(img13);
+				contentFrame.appendChild(img14);
+				contentFrame.appendChild(img15);
+				contentFrame.appendChild(img16);
+				contentFrame.appendChild(img17);
+				contentFrame.appendChild(img18);
+				contentFrame.appendChild(img19);
+				contentFrame.appendChild(img20);
+				contentFrame.appendChild(img21);
+				contentFrame.appendChild(img22);
+				contentFrame.appendChild(img23);
+				contentFrame.appendChild(img24);
+				contentFrame.appendChild(img25);
+				contentFrame.appendChild(img26);
+				contentFrame.appendChild(img27);
+				contentFrame.appendChild(img28);
+				//loadingScreen = document.createElement("div");
+				//loadingScreen.class = "loadingScrn";
+				//loadingScreen.innerHTML = "Loading...";
+				//contentContainer.appendChild(loadingScreen);
+				
+				setTimeout(
+					function()
+					{
+						contentFrame.removeChild(img1);
+						contentFrame.removeChild(img2);
+						contentFrame.removeChild(img3);
+						contentFrame.removeChild(img4);
+						contentFrame.removeChild(img5);
+						contentFrame.removeChild(img6);
+						contentFrame.removeChild(img7);
+						contentFrame.removeChild(img8);
+						contentFrame.removeChild(img9);
+						contentFrame.removeChild(img10);
+						contentFrame.removeChild(img11);
+						contentFrame.removeChild(img12);
+						contentFrame.removeChild(img13);
+						contentFrame.removeChild(img14);
+						contentFrame.removeChild(img15);
+						contentFrame.removeChild(img16);
+						contentFrame.removeChild(img17);
+						contentFrame.removeChild(img18);
+						contentFrame.removeChild(img19);
+						contentFrame.removeChild(img20);
+						contentFrame.removeChild(img21);
+						contentFrame.removeChild(img22);
+						contentFrame.removeChild(img23);
+						contentFrame.removeChild(img24);
+						contentFrame.removeChild(img25);
+						contentFrame.removeChild(img26);
+						contentFrame.removeChild(img27);
+						contentFrame.removeChild(img28);
+						//contentFrame.removeChild(loadingScreen);
+						newGame();
+					}, 2000);
+			}
+
+		</script>
+		<script src="engine.js"></script>
+		<script src = "gameCode.js"></script>
+		
+	</head>
+
+	<body onload = "startup();">
+		<div style="text-align:center;padding-bottom:50px" id = "container">
+			<br /><br />
+			<span>
+				<a href = "index.html" title = "Home Page">
+					Home
+				</a>
+			</span>
+			<span style = "text-shadow:none;color:gray;text-shadow:0 0 20px black;" title = "You're already here">
+					Play
+			</span>
+			<span>
+				<a href="credits.html" title="A tribute to all who helped make it happen">
+					Credits
+				</a>
+			</span>
+			<div style = "padding-top:1.5cm">
+				<img src = "images/The-Legend-of-the-Kingsl.png" />
+			</div>
+			<div id = "gameScreen">
+				<img id = "playerChar" src = "" />
+				<div id = "HUD">
+					<i id = "playerName"></i><br />
+					Health: <!--<progress id = "health" value = "" max = ""></progress>--><b id = "health"></b><br />
+					Gold: <b id = "goldCount"></b><br />
+					Area: <b id = "location"></b>
+				</div>
+				<div id = "playerPrompt"></div>
+				<div id = "menuBox"></div>
+				<div id = "envGround"></div>
+			</div>
+			
+			<div id = "TEST">
+			</div>
+			
+			<div id = "infoBox">
+				<h3>How to Play:</h3>
+				Left: A <br />
+                Right: D <br />
+                Crouch: S <br />
+                Jump: W <br />
+                Attack: Hold Spacebar<br />
+                Interact: E <br />
+			</div>
+			<div id = "tipBox">
+				<h3>Tips:</h3>
+				Click game screen to disable screen scrolling when pressing Spacebar<br /><br />
+				Until all the enemies in your area are dead, you keep losing health! Also, they respawn when you reenter an area.<br /><br />
+			</div>
+		</div>
+		
+	</body>
+</html>
