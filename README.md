@@ -7,5 +7,5 @@
     - Implement node.js, express.js, and nunjucks (essentially most of the MEAN stack)
     - OR create it as a Tornado Web App with Python
     - OR create it as a static web page if Github allows nothing else
-- Have the site be a bio for me and include a projects section, etc
+- Create the site as my bio and include a projects section, etc
 - Separate projects by date, to better show progression
