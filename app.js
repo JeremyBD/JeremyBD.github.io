@@ -70,6 +70,7 @@ app.use(function(err, req, res, next) {
   });
 });
 
+// initialize the server on a given port
 app.listen(8080, function () {
   console.log('App is good to go, listening on port 8080')
 })
