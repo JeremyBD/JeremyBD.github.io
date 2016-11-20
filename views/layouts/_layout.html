@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+    <head>
+        <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+        <title>{{ title }}</title>
+        <meta name = "description" content = "{{ description }}">
+        <link rel='shortcut icon' href='images/hashtag_logo.ico' type='image/x-icon'/ >
+        {% block css %}{% endblock %}
+    </head>
+    <body>
+        {% block nav %}{% endblock %}
+        <div class="container"></div>
+        {% block content %}{% endblock %}
+        </div>
+        
+        {% block js %}{% endblock %}
+    </body>
+</html>

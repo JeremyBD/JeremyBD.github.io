@@ -1,10 +1,12 @@
 # Hi!
 ## My name is Jeremy De La Cruz and this is my personal page with a few of my personal projects.
 
+### CURRENTLY:
+- Created core backend componenets, namely using express.js and node.js so far
+
 ### TODO:
-- Get the site up and running!
-    - Implement node.js, express.js, and nunjucks (essentially most of the MEAN stack)
-    - OR create it as a Tornado Web App with Python
-    - OR create it as a static web page if Github allows nothing else
-- Create the site as my bio and include a projects section, etc
+- Flesh out pages; the plan as of now is to have 3 separate pages
+    - a bio
+    - a project page
+    - an experience page
 - Separate projects by date, to better show progression
