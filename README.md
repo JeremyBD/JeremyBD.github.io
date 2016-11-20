@@ -9,4 +9,5 @@
     - a bio
     - a project page
     - an experience page
+- Figure out what the hell the design is gonna look like
 - Separate projects by date, to better show progression
