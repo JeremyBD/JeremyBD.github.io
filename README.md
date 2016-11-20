@@ -2,6 +2,7 @@
 ## My name is Jeremy De La Cruz and this is my personal page with a few of my personal projects.
 
 ### CURRENTLY:
+- As it is in development, the only way to run it is via localhost:8080 after initializing npm
 - Created core backend componenets, namely using express.js and node.js so far
 
 ### TODO:
