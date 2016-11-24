@@ -10,5 +10,5 @@
     - a bio
     - a project page
     - an experience page
-- Figure out what the hell the design is gonna look like
-- Separate projects by date, to better show progression
+- Figure out what the hell the design is gonna look like and how I will organize everything
+- Separate projects by date, to better show progression and all that fun stuff
